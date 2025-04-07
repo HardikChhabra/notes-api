@@ -21,7 +21,9 @@ router.post(
       const token = jwt.sign({ userId: user.email }, process.env.JWT_SECRET!, {
         expiresIn: "30d",
       });
-      res.status(200).json({ message: "User", token });
+      res
+        .status(200)
+        .json({ message: "User", token, email: user.email, name: user.name });
     } catch (error) {
       res.status(500).json({ error });
     }
@@ -43,7 +45,7 @@ router.post(
         res.status(401).json({ error: "Authentication Failed!" });
         return;
       }
-      const matched = bcrypt.compare(password, user.password);
+      const matched = await bcrypt.compare(password, user.password);
       if (!matched) {
         res.status(401).json({ error: "Authentication Failed!" });
         return;
@@ -51,7 +53,14 @@ router.post(
       const token = jwt.sign({ userId: user.email }, process.env.JWT_SECRET!, {
         expiresIn: "30d",
       });
-      res.status(200).json({ message: "User Logged in!", token });
+      res
+        .status(200)
+        .json({
+          message: "User Logged in!",
+          token,
+          email: user.email,
+          name: user.name,
+        });
     } catch (error) {
       res.status(500).json({ error });
     }

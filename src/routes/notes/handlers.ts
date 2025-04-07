@@ -6,9 +6,10 @@ import { and, eq } from "drizzle-orm";
 //C
 export async function createNote(req: Request, res: Response) {
   try {
+    const email = req.userId;
     const [newNote] = await db
       .insert(notes)
-      .values({ ...req.body })
+      .values({ ...req.body, email })
       .returning();
     res.status(201).json(newNote);
   } catch (error) {
