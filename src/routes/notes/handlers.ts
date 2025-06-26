@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { db } from "../../db/index";
-import { notes } from "../../db/schema";
+import { db } from "../../db/index.js";
+import { notes } from "../../db/schema.js";
 import { and, eq } from "drizzle-orm";
 
 //C

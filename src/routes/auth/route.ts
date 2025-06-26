@@ -1,8 +1,8 @@
 import { Router, Request, Response } from "express";
-import { createUserSchema, loginSchema, users } from "../../db/schema";
-import { validateData } from "../../middlewares/validationMiddleware";
+import { createUserSchema, loginSchema, users } from "../../db/schema.js";
+import { validateData } from "../../middlewares/validationMiddleware.js";
 import bcrypt from "bcryptjs";
-import { db } from "../../db/index";
+import { db } from "../../db/index.js";
 import jwt from "jsonwebtoken";
 import { eq } from "drizzle-orm";
 
@@ -53,14 +53,12 @@ router.post(
       const token = jwt.sign({ userId: user.email }, process.env.JWT_SECRET!, {
         expiresIn: "30d",
       });
-      res
-        .status(200)
-        .json({
-          message: "User Logged in!",
-          token,
-          email: user.email,
-          name: user.name,
-        });
+      res.status(200).json({
+        message: "User Logged in!",
+        token,
+        email: user.email,
+        name: user.name,
+      });
     } catch (error) {
       res.status(500).json({ error });
     }

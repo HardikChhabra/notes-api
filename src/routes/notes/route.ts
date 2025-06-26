@@ -4,9 +4,9 @@ import {
   deletePostById,
   getAllNotes,
   updatePostById,
-} from "./handlers";
-import { validateData } from "../../middlewares/validationMiddleware";
-import { createNoteSchema, updateNoteSchema } from "../../db/schema";
+} from "./handlers.js";
+import { validateData } from "../../middlewares/validationMiddleware.js";
+import { createNoteSchema, updateNoteSchema } from "../../db/schema.js";
 
 const router = Router();
 

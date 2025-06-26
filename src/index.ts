@@ -1,8 +1,8 @@
 import express from "express";
 import { json, urlencoded } from "express";
-import notesRouter from "./routes/notes/route";
-import authRouter from "./routes/auth/route";
-import { verifyToken } from "./middlewares/authMiddleware";
+import notesRouter from "./routes/notes/route.js";
+import authRouter from "./routes/auth/route.js";
+import { verifyToken } from "./middlewares/authMiddleware.js";
 import cors from "cors";
 
 const app = express();
