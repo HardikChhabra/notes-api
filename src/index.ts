@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-  origin: "https://jotdown-seven.vercel.app/",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
