@@ -22,6 +22,7 @@ app.use(urlencoded({ extended: false }));
 app.use("/notes", verifyToken, notesRouter);
 app.use("/auth", authRouter);
 
-app.listen(port, () => {
+/* app.listen(port, () => {
   console.log(`Listening on port ${port}`);
-});
+}); */
+module.exports = app; // Export the app for testing or deployment
