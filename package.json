@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "API for jotdown application",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node  --import=tsx --watch --env-file=.env src/index.ts",

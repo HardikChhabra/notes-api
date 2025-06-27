@@ -25,4 +25,4 @@ app.use("/auth", authRouter);
 /* app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 }); */
-module.exports = app; // Export the app for testing or deployment
+export default app; // Export the app for testing or deployment
